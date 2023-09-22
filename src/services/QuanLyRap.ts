@@ -1,5 +1,9 @@
 import { apiInstance } from "constant/APIInstance";
-import { HeThongRapType } from "types/HeThongRapType";
+import {
+  CumRapType,
+  HeThongRapType,
+  ThongTinLichChieuType,
+} from "types/HeThongRapType";
 import ApiResponse from "types/type";
 
 const api = apiInstance({
@@ -7,5 +11,14 @@ const api = apiInstance({
 });
 
 export const QuanLyRapServices = {
-  heThongRap: () => api.get<ApiResponse<HeThongRapType[]>>("/LayThongTinHeThongRap"),
+  heThongRap: () =>
+    api.get<ApiResponse<HeThongRapType[]>>("/LayThongTinHeThongRap"),
+  cumRap: (query: string) =>
+    api.get<ApiResponse<CumRapType[]>>(
+      `LayThongTinCumRapTheoHeThong?maHeThongRap=${query}`
+    ),
+  thongTinLichChieu: () =>
+    api.get<ApiResponse<ThongTinLichChieuType[]>>(
+      `LayThongTinLichChieuHeThongRap?maNhom=GP01`
+    ),
 };
