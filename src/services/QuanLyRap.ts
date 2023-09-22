@@ -19,6 +19,6 @@ export const QuanLyRapServices = {
     ),
   thongTinLichChieu: () =>
     api.get<ApiResponse<ThongTinLichChieuType[]>>(
-      `LayThongTinLichChieuHeThongRap?maNhom=GP01`
+      `LayThongTinLichChieuHeThongRap?maNhom=GP03`
     ),
 };
