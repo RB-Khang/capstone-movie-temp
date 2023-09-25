@@ -41,6 +41,8 @@ const HomeTemplate = () => {
                 <div className="grid grid-cols-5 gap-5">
                     {
                         listPhim?.map((item) => {
+                            console.log(item.maPhim);
+                            
                             return <Card key={item.maPhim} className="card-item">
                                 <div className="img">
                                     <img src={item.hinhAnh} alt="" />

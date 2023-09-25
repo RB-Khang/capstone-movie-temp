@@ -6,6 +6,7 @@ import Login from 'pages/Login'
 import { MainLayout } from 'components'
 import Home from 'pages/Home'
 import Rap from 'pages/Rap'
+import Booking from 'pages/Booking'
 // import PhimDangChieu from 'components/UI/PhimDangChieu'
 
 
@@ -21,6 +22,10 @@ export const router: RouteObject[] = [
             {
                 path:PATH.heThongRap,
                 element:<Rap></Rap>
+            },
+            {
+                path:PATH.booking,
+                element:<Booking></Booking>
             }
 
         ]

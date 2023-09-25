@@ -15,3 +15,5 @@ export const Card: CardObject = (props) => {
 
 Card.Meta = CardA.Meta
 Card.Grid = CardA.Grid
+
+

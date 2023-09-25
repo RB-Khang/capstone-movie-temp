@@ -8,99 +8,100 @@ import { QuanLyNguoiDungActions } from "store/QuanLyNguoiDung/slice";
 import { toast } from "react-toastify";
 
 const Header = () => {
-    const dispatch = useAppDispatch();
-    const { userLogin } = useAuth();
-    const navigate = useNavigate();
-    const accessToken = getAccessToken();
-    return (
-        <div>
-            <Container>
-                <div className="header-content">
-                    <h1 className="ps-5">
-                        CYBER<span>MOVIE</span>
-                    </h1>
-                    <div className="nav">
-                        <NavLink to="/" className="nav-link">
-                            THÔNG TIN
-                        </NavLink>
-                        <NavLink to="/" className="nav-link">
-                            PHIM
-                        </NavLink>
-                        <NavLink to={PATH.heThongRap} className="nav-link">
-                            RẠP
-                        </NavLink>
-                        <NavLink to="/" className="nav-link">
-                            TIN TỨC
-                        </NavLink>
-                    </div>
-                    <div className="header-search">
-                        <input
-                            type="text"
-                            className="input-search"
-                            placeholder="Tìm kiếm phim"
-                        />
-                    </div>
-                </div>
-                <div className="auth">
-                    {!accessToken && (
-                        <p>
-                            <span className="span-hover" onClick={() => navigate(PATH.login)}>
-                                Đăng nhập
-                            </span>
-                            <span> | </span>
-                            <span
-                                className="span-hover"
-                                onClick={() => navigate(PATH.register)}
-                            >
-                                Đăng ký
-                            </span>
-                        </p>
-                    )}
-                    {!!accessToken && (
-                        <p>
-                            <span
-                                style={{
-                                    fontWeight: 500,
-                                }}
-                            >
-                                {userLogin.hoTen}
-                            </span>
-                            <span> | </span>
-                            <span
-                                className="span-hover"
-                                onClick={() => {
-                                    const isLogout = confirm("Bạn có chắc muốn đăng xuất?");
-                                    if (isLogout) {
-                                        dispatch(QuanLyNguoiDungActions.logOut());
-                                        toast.success("Đăng xuất thành công");
-                                    }
-                                }}
-                            >
-                                Đăng xuất
-                            </span>
-                        </p>
-                    )}
-                </div>
-            </Container>
+  const dispatch = useAppDispatch();
+  const { userLogin } = useAuth();
+  const navigate = useNavigate();
+  const accessToken = getAccessToken();
+  return (
+    <div>
+      <Container>
+        <div className="header-content">
+          <h1 className="ps-5">
+            CYBER<span className="text-red-500">MOVIE</span>
+          </h1>
+          <div className="nav">
+            <NavLink to="/" className="nav-link">
+              THÔNG TIN
+            </NavLink>
+            <NavLink to="/" className="nav-link">
+              PHIM
+            </NavLink>
+            <NavLink to={PATH.heThongRap} className="nav-link">
+              RẠP
+            </NavLink>
+            <NavLink to={PATH.booking} className="nav-link">
+              ĐẶT VÉ
+            </NavLink>
+          </div>
+          <div className="header-search">
+            <input
+              type="text"
+              className="input-search"
+              placeholder="Tìm kiếm phim"
+            />
+          </div>
         </div>
-    );
+        <div className="auth">
+          {!accessToken && (
+            <p>
+              <span className="span-hover" onClick={() => navigate(PATH.login)}>
+                Đăng nhập
+              </span>
+              <span> | </span>
+              <span
+                className="span-hover"
+                onClick={() => navigate(PATH.register)}
+              >
+                Đăng ký
+              </span>
+            </p>
+          )}
+          {!!accessToken && (
+            <p>
+              <span
+                style={{
+                  fontWeight: 500,
+                }}
+              >
+                {userLogin.hoTen}
+              </span>
+              <span> | </span>
+              <span
+                className="span-hover"
+                onClick={() => {
+                  const isLogout = confirm("Bạn có chắc muốn đăng xuất?");
+                  if (isLogout) {
+                    dispatch(QuanLyNguoiDungActions.logOut());
+                    toast.success("Đăng xuất thành công");
+                  }
+                }}
+              >
+                Đăng xuất
+              </span>
+            </p>
+          )}
+        </div>
+      </Container>
+    </div>
+  );
 };
 
 export default Header;
 
 const Container = styled.div`
   position: sticky;
-border-radius: 8px;
+  border-radius: 8px;
   height: 70px;
   padding: 15px 0;
   width: 80%;
   margin: auto;
   display: flex;
   justify-content: space-between;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   .header-content {
     height: 100%;
-    width: 80%;
+    width: 80%; 
     display: flex;
     justify-content: space-between;
     align-items: center;
