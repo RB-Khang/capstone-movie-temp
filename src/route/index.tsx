@@ -7,6 +7,7 @@ import { MainLayout } from 'components'
 import Home from 'pages/Home'
 import Rap from 'pages/Rap'
 import Booking from 'pages/Booking'
+import { Detail } from 'pages/Detail'
 // import PhimDangChieu from 'components/UI/PhimDangChieu'
 
 
@@ -26,6 +27,10 @@ export const router: RouteObject[] = [
             {
                 path:PATH.booking,
                 element:<Booking></Booking>
+            },
+            {
+                path:PATH.detail,
+                element:<Detail></Detail>
             }
 
         ]

@@ -27,7 +27,10 @@ const RapTemplate = () => {
             (item) => item.maHeThongRap === mhtr
         );
         return listcumrap;
+        
     };
+    
+    
     const getCumRap = () => {
         const cumrap = cumRap?.map((cumrap, index) => {
             return {

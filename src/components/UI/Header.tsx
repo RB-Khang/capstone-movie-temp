@@ -1,17 +1,25 @@
 import styled from "styled-components";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import { useAuth } from "hooks";
 import { getAccessToken } from "utils";
 import { PATH } from "constant";
-import { useAppDispatch } from "store";
+import {  useAppDispatch } from "store";
 import { QuanLyNguoiDungActions } from "store/QuanLyNguoiDung/slice";
 import { toast } from "react-toastify";
+
+
+// import { Button } from "antd";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const { userLogin } = useAuth();
   const navigate = useNavigate();
   const accessToken = getAccessToken();
+
+ 
+ 
+  
+
   return (
     <div>
       <Container>
@@ -35,10 +43,15 @@ const Header = () => {
           </div>
           <div className="header-search">
             <input
+            
               type="text"
-              className="input-search"
+              className="input-search mr-4"
               placeholder="Tìm kiếm phim"
+            
             />
+            {/* <Button type="primary" danger className="!text-sm"
+          
+            >Search</Button> */}
           </div>
         </div>
         <div className="auth">
