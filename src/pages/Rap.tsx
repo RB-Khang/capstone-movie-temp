@@ -1,9 +1,5 @@
-import RapTemplate from "components/templates/RapTemplate"
+import RapTemplate from "components/templates/RapTemplate";
 
-const Rap = () => {
-    return (
-        <RapTemplate />
-    )
-}
-
-export default Rap
+export const Rap = () => {
+  return <RapTemplate />;
+};

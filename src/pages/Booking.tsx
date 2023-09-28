@@ -1,9 +1,5 @@
-import BookingTemplate from "components/templates/BookingTemplate"
+import BookingTemplate from "components/templates/BookingTemplate";
 
-const Booking = () => {
-  return (
-    <BookingTemplate></BookingTemplate>
-  )
-}
-
-export default Booking
+export const Booking = () => {
+  return <BookingTemplate></BookingTemplate>;
+};

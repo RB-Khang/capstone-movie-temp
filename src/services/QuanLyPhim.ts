@@ -1,7 +1,7 @@
 import { apiInstance } from "constant/APIInstance";
 import { Banner } from "types/BannerObjectType";
 import { ThongTinPhim } from "types/DanhSachPhimType";
-import ApiResponse from "types/type";
+
 
 const api = apiInstance({
   baseURL: import.meta.env.VITE_QUAN_LY_PHIM_API,

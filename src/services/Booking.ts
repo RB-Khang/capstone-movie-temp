@@ -1,6 +1,6 @@
 import { apiInstance } from "constant/APIInstance";
 import {  DanhSachGhe, ThongTinPhimRap,} from "types/DanhSachPhongVe";
-import ApiResponse from "types/type";
+
 const api = apiInstance({
     baseURL: import.meta.env.VITE_DANH_SACH_PHONG_VE_API,
 

@@ -2,7 +2,7 @@ import { apiInstance } from "constant/APIInstance";
 import { RegisterSchemaType } from "schemas";
 import { LoginSchemaType } from "schemas/LoginSchema";
 import { UserLogin, getUserLoginType } from "types/UserLoginType";
-import ApiResponse from "types/type";
+
 
 const api = apiInstance({
   baseURL: import.meta.env.VITE_QUAN_LY_NGUOI_DUNG_API,
