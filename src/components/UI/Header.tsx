@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import { NavLink, useNavigate} from "react-router-dom";
-import { useAuth } from "hooks";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth, useQueryUrl } from "hooks";
 import { getAccessToken } from "utils";
 import { PATH } from "constant";
-import {  useAppDispatch } from "store";
+import { RootState, useAppDispatch } from "store";
 import { QuanLyNguoiDungActions } from "store/QuanLyNguoiDung/slice";
 import { toast } from "react-toastify";
-
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { Button } from "antd";
 
 // import { Button } from "antd";
 
@@ -16,9 +18,19 @@ const Header = () => {
   const navigate = useNavigate();
   const accessToken = getAccessToken();
 
- 
- 
-  
+  const { listPhim } = useSelector((state: RootState) => state.QuanLyPhim);
+  const [inputValue, setInputValue] = useState();
+  const [queryParams, setQueryParams] = useQueryUrl();
+
+  // console.log("queryParams: ", queryParams);
+
+  const movieSearch = listPhim?.filter((item) =>
+    item.tenPhim
+      .toLowerCase()
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .includes((queryParams as any)?.movieName?.toLowerCase())
+  );
+  console.log(movieSearch);
 
   return (
     <div>
@@ -43,15 +55,27 @@ const Header = () => {
           </div>
           <div className="header-search">
             <input
-            
+              value={inputValue || ""}
               type="text"
               className="input-search mr-4"
               placeholder="Tìm kiếm phim"
-            
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              onChange={(ev: any) => {
+                setInputValue(ev.target.value);
+              }}
             />
-            {/* <Button type="primary" danger className="!text-sm"
-          
-            >Search</Button> */}
+            <Button
+              type="primary"
+              danger
+              className="!text-sm"
+              onClick={() => {
+                setQueryParams({
+                  movieName: inputValue || undefined,
+                });
+              }}
+            >
+              Search
+            </Button>
           </div>
         </div>
         <div className="auth">
@@ -114,7 +138,7 @@ const Container = styled.div`
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   .header-content {
     height: 100%;
-    width: 80%; 
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;

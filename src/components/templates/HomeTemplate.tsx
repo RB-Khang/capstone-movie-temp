@@ -1,3 +1,6 @@
+/* eslint-disable no-empty-pattern */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,15 +23,14 @@ const HomeTemplate = () => {
   const { listPhim, bannerList } = useSelector(
     (state: RootState) => state.QuanLyPhim
   );
-  const [inputValue, setInputValue] = useState();
-  const [queryParams, setQueryParams] = useQueryUrl();
-  // console.log("queryParams: ", queryParams);
+  const [] = useState();
+  const [queryParams] = useQueryUrl();
 
-  const movieSearch = listPhim.filter(
-    (item) =>
-      item.tenPhim.toLowerCase().includes(queryParams?.movieName?.toLowerCase())
-
-    // optional chaining
+  const movieSearch = listPhim?.filter((item) =>
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    item.tenPhim
+      .toLowerCase()
+      .includes((queryParams as any)?.movieName?.toLowerCase())
   );
 
   return (
@@ -59,57 +61,39 @@ const HomeTemplate = () => {
 
       <Container_2>
         <PhimTypeButton></PhimTypeButton>
-        <input
-          value={inputValue || ""}
-          type="text"
-          className="input-search mr-4"
-          placeholder="Tìm kiếm phim"
-          onChange={(ev) => {
-            setInputValue(ev.target.value);
-          }}
-        />
-        <Button
-          type="primary"
-          danger
-          className="!text-sm"
-          onClick={() => {
-            setQueryParams({
-              movieName: inputValue || undefined,
-            });
-          }}
-        >
-          Search
-        </Button>
+
         <div className="grid grid-cols-5 gap-5">
-          {(queryParams?.movieName ? movieSearch : listPhim).map((item) => {
-            return (
-              <Card key={item.maPhim} className="card-item">
-                <div className="img">
-                  <img src={item.hinhAnh} alt="" />
-                </div>
-                <div className="phim-content flex justify-between">
-                  <div>
-                    <p className="font-bold">{item.tenPhim}</p>
-                    <p className="italic">Rating: {item.danhGia}</p>
+          {((queryParams as any)?.movieName ? movieSearch : listPhim)?.map(
+            (item) => {
+              return (
+                <Card key={item.maPhim} className="card-item">
+                  <div className="img">
+                    <img src={item.hinhAnh} alt="" />
                   </div>
-                  <div>
-                    <Button
-                      type="primary"
-                      onClick={() => {
-                        const path = generatePath(PATH.detail, {
-                          movieID: item.maPhim,
-                        });
-                        console.log("path", path);
-                        navigation(path);
-                      }}
-                    >
-                      Detail
-                    </Button>
+                  <div className="phim-content flex justify-between">
+                    <div>
+                      <p className="font-bold">{item.tenPhim}</p>
+                      <p className="italic">Rating: {item.danhGia}</p>
+                    </div>
+                    <div>
+                      <Button
+                        type="primary"
+                        onClick={() => {
+                          const path = generatePath(PATH.detail, {
+                            movieID: item.maPhim,
+                          });
+                          console.log("path", path);
+                          navigation(path);
+                        }}
+                      >
+                        Detail
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            );
-          })}
+                </Card>
+              );
+            }
+          )}
         </div>
       </Container_2>
     </Container>
