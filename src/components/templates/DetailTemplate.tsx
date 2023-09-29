@@ -7,10 +7,11 @@ export const DetailTemplate = () => {
   const params = useParams();
 
   const { listPhim } = useSelector((state: RootState) => state.QuanLyPhim);
-  console.log(listPhim);
 
   // detail movied
-  const movieDetail = listPhim.find((e) => e.maPhim === Number(params.movieID));
+  const movieDetail = listPhim?.find(
+    (e) => e.maPhim === Number(params.movieID)
+  );
   console.log("movieDetail", movieDetail);
 
   return (

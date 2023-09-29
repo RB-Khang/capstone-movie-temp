@@ -9,7 +9,10 @@ type PhongVeType = {
    
 
 }
-const initialState: PhongVeType = {};
+const initialState: PhongVeType = {
+
+};
+
 const DanhSachPhongVeSlice = createSlice({
     name: "DanhSachPhongVe",
     initialState,

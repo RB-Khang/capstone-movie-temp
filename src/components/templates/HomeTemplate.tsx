@@ -15,7 +15,7 @@ import { Autoplay } from "swiper/modules";
 import { Button } from "antd";
 import { generatePath, useNavigate } from "react-router-dom";
 import { PATH } from "constant";
-import { useState } from "react";
+
 import { useQueryUrl } from "hooks";
 
 const HomeTemplate = () => {
@@ -23,7 +23,7 @@ const HomeTemplate = () => {
   const { listPhim, bannerList } = useSelector(
     (state: RootState) => state.QuanLyPhim
   );
-  const [] = useState();
+
   const [queryParams] = useQueryUrl();
 
   const movieSearch = listPhim?.filter((item) =>

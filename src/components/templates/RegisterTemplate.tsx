@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "components";
+import { Button, Input } from "components";
 import { useForm } from "react-hook-form";
 import { SubmitHandler } from "react-hook-form";
 import { RegisterSchema, RegisterSchemaType } from "schemas";
@@ -79,9 +79,9 @@ const RegisterTemplate = () => {
         register={register}
         error={errors?.maNhom?.message}
       ></Input>
-      <button className="mt-3 w-full bg-red-500 rounded p-3 text-white">
+      <Button className="mt-20 w-full !bg-red-500 rounded p-3 !text-white !h-[48px]">
         Đăng ký
-      </button>
+      </Button>
     </form>
   );
 };

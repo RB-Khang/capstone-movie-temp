@@ -5,4 +5,6 @@ export const PATH = {
   heThongRap:"/he-thong-rap",
   booking:"/dat-ve",
   detail:"/thong-tin-phim/:movieID",
+  thongTinChieu: "/thong-tin-chieu/:lichchieuID",
+
 };

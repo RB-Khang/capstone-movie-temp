@@ -7,7 +7,8 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 import { AccountSchema, AccountSchemaType } from "schemas";
 import { useAppDispatch } from "store";
-import { checkLoginThunk } from "store/QuanLyNguoiDung/thunk";
+import { UpdateUserThunk } from "store/CapNhatUser/thunk";
+
 // import { UpdateUserThunk } from "store/capNhatUser";
 
 // import styled from 'styled-components'
@@ -28,12 +29,7 @@ export const AccountInfo = () => {
 
   const onSubmit: SubmitHandler<AccountSchemaType> = (value) => {
     console.log("value: ", value);
-    // dispatch(UpdateUserThunk(value));
-    dispatch(checkLoginThunk());
-
-    // gọi API update tài khoản
-
-    // dispatch action getUserByAccessToken
+    dispatch(UpdateUserThunk(value));
   };
 
   useEffect(() => {

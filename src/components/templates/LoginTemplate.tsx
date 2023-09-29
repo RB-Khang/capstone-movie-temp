@@ -1,6 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Input } from "components";
+import { Button, Input } from "components";
 import { useForm, SubmitHandler } from "react-hook-form";
+// import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LoginSchema, LoginSchemaType } from "schemas/LoginSchema";
@@ -19,6 +20,9 @@ const LoginTemplate = () => {
     mode: "onBlur",
     resolver: zodResolver(LoginSchema),
   });
+  // const { isFetchingLogin } = useSelector(
+  //   (state: RootState) => state.QuanLyNguoiDung
+  // );
   const onSubmit: SubmitHandler<LoginSchemaType> = (values) => {
     dispatch(loginThunk(values))
       .unwrap()
@@ -50,9 +54,15 @@ const LoginTemplate = () => {
         register={register}
         error={errors?.matKhau?.message}
       ></Input>
-      <button className="!w-full p-2 text-white bg-red-500 rounded mt-3">
+      <Button
+        className="!w-full !text-white !mt-20 !h-[48px] "
+        type="primary"
+        htmlType="submit"
+        danger
+        // loading={isFetchingLogin}
+      >
         Đăng nhập
-      </button>
+      </Button>
     </form>
   );
 };
