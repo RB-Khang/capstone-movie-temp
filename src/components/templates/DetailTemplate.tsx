@@ -7,7 +7,7 @@ export const DetailTemplate = () => {
   const params = useParams();
 
   const { listPhim } = useSelector((state: RootState) => state.QuanLyPhim);
-
+  //hello
   // detail movied
   const movieDetail = listPhim?.find(
     (e) => e.maPhim === Number(params.movieID)
