@@ -1,9 +1,7 @@
-import LoginTemplate from "components/templates/LoginTemplate"
+import LoginTemplate from "components/templates/LoginTemplate";
 
 const Login = () => {
-  return (
-    <LoginTemplate></LoginTemplate>
-  )
-}
+  return <LoginTemplate></LoginTemplate>;
+};
 
-export default Login
+export default Login;

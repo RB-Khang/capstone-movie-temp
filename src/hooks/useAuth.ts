@@ -6,7 +6,7 @@ export const useAuth = () => {
     (state: RootState) => state.QuanLyNguoiDung
   );
   return {
-    userLogin,
+   user: userLogin,
     accessToken,
   };
 };

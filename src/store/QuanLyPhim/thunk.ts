@@ -25,4 +25,17 @@ export const DanhSachPhimThunk = createAsyncThunk(
   }
 );
 
+// export const DetailPhim = createAsyncThunk(
+//   "QuanLyPhim/danhsach",
+//   async (payload: string, { rejectWithValue }) => {
+//     try {
+//       const data = await QuanLyPhimServices.danhSachPhim(maPhim);
+//       return data.data.content;
+//     } catch (err) {
+//       return rejectWithValue(err);
+//     }
+//   }
+// );
+
+
 

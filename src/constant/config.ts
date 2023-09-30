@@ -1,5 +1,10 @@
 export const PATH = {
   login: "/login",
   register: "/register",
-  heThongRap:"/he-thong-rap"
+  account: '/account',
+  heThongRap:"/he-thong-rap",
+  booking:"/dat-ve",
+  detail:"/thong-tin-phim/:movieID",
+  thongTinChieu: "/thong-tin-chieu/:lichchieuID",
+
 };

@@ -28,6 +28,12 @@ export type LichChieuType = {
 
 export type DanhSachPhim = {
   lstLichChieuTheoPhim?: LichChieuType[];
+  dangChieu: boolean;
+  hinhAnh: string;
+  hot: boolean;
+  maPhim: number;
+  sapChieu: boolean;
+  tenPhim: string;
 };
 
 export type lstCumRapType = {
@@ -56,5 +62,5 @@ export type ThongTinLichChieuType = {
   tenHeThongRap?: string;
   mahom?: string;
   logo?: string;
-  lstCumRap?:lstCumRapType[]
+  lstCumRap?: lstCumRapType[];
 };

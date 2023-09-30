@@ -7,7 +7,7 @@
 // };
 
 export type ThongTinPhim = {
-  maPhim?: string;
+  maPhim?: number;
   tenPhim?: string;
   biDanh?: string;
   trailer?: string;
@@ -20,3 +20,8 @@ export type ThongTinPhim = {
   dangChieu?: boolean;
   sapChieu?: boolean;
 };
+
+
+// export type QuerryObject ={
+// movieName?:string |undefined
+// }

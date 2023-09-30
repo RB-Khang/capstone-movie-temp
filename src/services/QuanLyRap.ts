@@ -4,7 +4,7 @@ import {
   HeThongRapType,
   ThongTinLichChieuType,
 } from "types/HeThongRapType";
-import ApiResponse from "types/type";
+
 
 const api = apiInstance({
   baseURL: import.meta.env.VITE_QUAN_LY_RAP_API,
@@ -19,6 +19,6 @@ export const QuanLyRapServices = {
     ),
   thongTinLichChieu: () =>
     api.get<ApiResponse<ThongTinLichChieuType[]>>(
-      `LayThongTinLichChieuHeThongRap?maNhom=GP01`
+      `LayThongTinLichChieuHeThongRap?maNhom=GP03`
     ),
 };

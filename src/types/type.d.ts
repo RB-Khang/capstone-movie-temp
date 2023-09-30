@@ -5,4 +5,3 @@ declare type ApiResponse<T> = {
 };
 
 
-export default ApiResponse
